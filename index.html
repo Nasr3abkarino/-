@@ -1,77 +1,253 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>تهنئة بالمولد النبوي الشريف</title>
-  <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Cairo:wght@600&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Amiri', 'Cairo', serif;
-      background: radial-gradient(circle at center, #0f3d0f, #001a00);
-      color: #fff;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      overflow: hidden;
-    }
-
-    h1 {
-      font-size: 2.8em;
-      color: gold;
-      text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
-      margin-bottom: 20px;
-      animation: fadeIn 2s ease-in-out;
-    }
-
-    h2 {
-      font-size: 2.2em;
-      margin-top: 10px;
-      color: #fff;
-      text-shadow: 1px 1px 5px rgba(0,0,0,0.6);
-      animation: fadeIn 3s ease-in-out;
-    }
-
-    .stars {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: transparent url('https://i.ibb.co/2k8PrdB/stars.png') repeat;
-      animation: moveStars 60s linear infinite;
-      opacity: 0.4;
-    }
-
-    @keyframes moveStars {
-      from { background-position: 0 0; }
-      to { background-position: -10000px 5000px; }
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @media (max-width: 600px) {
-      h1 { font-size: 2em; }
-      h2 { font-size: 1.5em; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تهنئة بالمولد النبوي الشريف</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Scheherazade New', serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="none" width="100" height="100"/><path fill="rgba(255,255,255,0.1)" d="M30,30L70,30L70,70L30,70Z" /></svg>');
+        }
+        
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            width: 100%;
+            max-width: 600px;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #4caf50, #8bc34a, #cddc39);
+        }
+        
+        h1 {
+            color: #4caf50;
+            margin-bottom: 20px;
+            font-size: 2rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        h1::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 30%;
+            right: 30%;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #4caf50, transparent);
+        }
+        
+        .input-section {
+            margin: 25px 0;
+        }
+        
+        input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        input:focus {
+            border-color: #4caf50;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+        }
+        
+        button {
+            background: linear-gradient(to right, #4caf50, #8bc34a);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .greeting-section {
+            display: none;
+            margin-top: 30px;
+            padding: 20px;
+            background-color: rgba(76, 175, 80, 0.1);
+            border-radius: 10px;
+            animation: fadeIn 1s;
+        }
+        
+        .greeting-text {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        .name-highlight {
+            color: #4caf50;
+            font-weight: bold;
+            font-size: 1.4rem;
+        }
+        
+        .decoration {
+            margin: 20px 0;
+            font-size: 2.5rem;
+            color: #4caf50;
+        }
+        
+        .share-section {
+            margin-top: 25px;
+            padding-top: 15px;
+            border-top: 1px dashed #ccc;
+        }
+        
+        .share-btn {
+            background: linear-gradient(to right, #2196f3, #03a9f4);
+            display: inline-block;
+            margin: 10px 5px;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.7rem;
+            }
+            
+            .greeting-text {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="stars"></div>
-  <h1>🌙 كل عام وأنتم بخير بمناسبة المولد النبوي الشريف 🌙</h1>
-  <h2>كل عام وأنت بخير يا <span style="color: gold;">محمد</span> 🌸</h2>
+    <div class="container">
+        <h1>تهنئة بالمولد النبوي الشريف</h1>
+        
+        <div class="input-section" id="inputSection">
+            <p>ادخل اسمك الكريم لتReceive تهنئة خاصة بك</p>
+            <input type="text" id="nameInput" placeholder="اكتب اسمك هنا">
+            <button onclick="showGreeting()">عرض التهنئة</button>
+        </div>
+        
+        <div class="greeting-section" id="greetingSection">
+            <div class="decoration">🌙</div>
+            <p class="greeting-text">
+                بمناسبة ذكرى المولد النبوي الشريف،<br>
+                نتقدم إلى حضرة <span class="name-highlight" id="userName">الصديق العزيز</span><br>
+                بأطيب التهاني والتبريكات،<br>
+                سائلين المولى عز وجل أن يعيد هذه الذكرى العطرة<br>
+                على الأمة الإسلامية باليمن والبركات،<br>
+                وكل عام وأنتم بخير.
+            </p>
+            <div class="decoration">✨</div>
+            
+            <div class="share-section">
+                <p>شارك هذه التهنئة مع أحبابك</p>
+                <button class="share-btn" onclick="shareGreeting()">مشاركة الرابط</button>
+                <button onclick="resetGreeting()">تهنئة جديدة</button>
+            </div>
+        </div>
+    </div>
 
-  <!-- 
-    ✅ ملاحظة:
-    لتغيير الاسم: عدل النص داخل span
-    مثال:
-    <span style="color: gold;">أحمد</span>
-  -->
+    <script>
+        // استقبال الاسم من خلال بارامتر في الرابط
+        const urlParams = new URLSearchParams(window.location.search);
+        const nameFromUrl = urlParams.get('name');
+        
+        if (nameFromUrl) {
+            document.getElementById('nameInput').value = nameFromUrl;
+            showGreeting();
+        }
+        
+        function showGreeting() {
+            const name = document.getElementById('nameInput').value.trim() || 'الصديق العزيز';
+            document.getElementById('userName').textContent = name;
+            
+            document.getElementById('inputSection').style.display = 'none';
+            document.getElementById('greetingSection').style.display = 'block';
+            
+            // إضافة الاسم إلى عنوان الصفحة بدون إعادة تحميل
+            const newUrl = window.location.origin + window.location.pathname + '?name=' + encodeURIComponent(name);
+            window.history.replaceState({ path: newUrl }, '', newUrl);
+        }
+        
+        function resetGreeting() {
+            document.getElementById('nameInput').value = '';
+            document.getElementById('greetingSection').style.display = 'none';
+            document.getElementById('inputSection').style.display = 'block';
+            
+            // إزالة الاسم من الرابط
+            window.history.replaceState({}, document.title, window.location.pathname);
+        }
+        
+        function shareGreeting() {
+            const name = document.getElementById('nameInput').value.trim() || 'الصديق العزيز';
+            const shareUrl = window.location.origin + window.location.pathname + '?name=' + encodeURIComponent(name);
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: 'تهنئة بالمولد النبوي الشريف',
+                    text: `تهنئة خاصة بـ ${name} بمناسبة المولد النبوي الشريف`,
+                    url: shareUrl
+                })
+                .then(() => console.log('تم المشاركة بنجاح'))
+                .catch((error) => console.log('Error sharing:', error));
+            } else {
+                // نسخ الرابط إلى الحافظة إذا لم يكن المشاركة مدعومة
+                navigator.clipboard.writeText(shareUrl)
+                    .then(() => alert('تم نسخ الرابط إلى الحافظة، يمكنك الآن مشاركته مع أحبابك'))
+                    .catch(err => {
+                        console.error('Failed to copy: ', err);
+                        prompt('انسخ الرابط التالي:', shareUrl);
+                    });
+            }
+        }
+        
+        // السماح بإدخال الاسم بالضغط على Enter
+        document.getElementById('nameInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                showGreeting();
+            }
+        });
+    </script>
 </body>
 </html>
